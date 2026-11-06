@@ -1,0 +1,24 @@
+{
+  "name": "Oluwatobi's Job Hunt",
+  "short_name": "Job Hunt",
+  "description": "Live tracker of every backend .NET/C# role found, applied to, or flagged during the daily job search.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#faf7f1",
+  "theme_color": "#1f6f5c",
+  "icons": [
+    {
+      "src": "/_cdn/static/900c9c6e-46c4-44ff-a1e7-c6e36d657280.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/_cdn/static/900c9c6e-46c4-44ff-a1e7-c6e36d657280.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

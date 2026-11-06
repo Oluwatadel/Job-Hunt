@@ -1,0 +1,40 @@
+# Enter values in Render's Environment tab; this is a reference, not a secret file.
+# Core database URL and JWT_SECRET are managed by render.yaml.
+# APP_URL defaults to the assigned Render URL. Set it when using a custom domain.
+APP_URL=https://jobs.example.com
+
+# Gmail + Drive: separate consent from app sign-in.
+# Authorized redirect: APP_URL/__runtime/google/callback
+GOOGLE_INTEGRATION_CLIENT_ID=
+GOOGLE_INTEGRATION_CLIENT_SECRET=
+
+# Optional Google identity login. The initial owner can use email/password.
+# Authorized redirect: APP_URL/_api/auth/oauth_callback
+GOOGLE_OAUTH_CLIENT_ID=
+GOOGLE_OAUTH_CLIENT_SECRET=
+GITHUB_OAUTH_CLIENT_ID=
+GITHUB_OAUTH_CLIENT_SECRET=
+LINKEDIN_OAUTH_CLIENT_ID=
+LINKEDIN_OAUTH_CLIENT_SECRET=
+
+# Password resets and account mail; never used for employer application sends.
+SMTP_URL=smtps://USERNAME:URL_ENCODED_PASSWORD@SMTP_HOST:465
+MAIL_FROM=Job Hunt <support@example.com>
+
+# AI drafts / profile extraction / matching. Set a compatible model yourself.
+AI_BASE_URL=https://api.openai.com/v1
+AI_API_KEY=
+AI_MODEL=
+
+# Enable only after configuring AI and confirming user opt-in.
+ENABLE_SCHEDULER=false
+
+# Optional paid membership: your own supported Stripe business account.
+STRIPE_SECRET_KEY=
+STRIPE_PUBLISHABLE_KEY=
+STRIPE_WEBHOOK_SECRET=
+
+# Optional push: PUBLIC key must also be present during the frontend build.
+VAPID_PUBLIC_KEY=
+VAPID_PRIVATE_KEY=
+VAPID_SUBJECT=mailto:you@example.com

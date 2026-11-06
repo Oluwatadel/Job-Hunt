@@ -1,0 +1,1 @@
+export type OutputType = {ok:boolean};

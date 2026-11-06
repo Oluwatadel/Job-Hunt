@@ -1,0 +1,1 @@
+export type OutputType = { id:string; event:string; detail:string|null; createdAt:Date }[];

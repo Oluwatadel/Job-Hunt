@@ -1,0 +1,3 @@
+/* Self-host runtime only; never sync this file into Floot. */
+self.addEventListener('push',event=>{let data={};try{data=event.data.json();}catch{}const message={...data,data:{...(data.data||{}),url:data.url||'/'}};event.waitUntil(self.registration.showNotification(data.title||'Job Hunt',{body:data.body||'',tag:data.tag,data:message.data}));});
+self.addEventListener('notificationclick',event=>{event.notification.close();let url=new URL(event.notification.data?.url||'/',self.location.origin);if(url.origin!==self.location.origin)url=new URL('/',self.location.origin);event.waitUntil(clients.openWindow(url.href));});

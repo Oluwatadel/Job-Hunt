@@ -1,0 +1,3 @@
+import { db } from "../helpers/db";import { serverAccess as a } from "../helpers/serverAccess";import { getUrl } from "@floot/storage";
+export async function handle(request:Request){try{const u=await a.current(request);const row=await db.selectFrom("resumeFile").selectAll().where("userId","=",u.id).executeTakeFirst();if(!row)return a.json({exists:false});
+ const result=await getUrl({visibility:"private",filename:row.storageKey,expiresInSeconds:300});if(!result.ok)a.fail("Unable to read resume.");return a.json({exists:true,filename:row.originalFilename,contentType:row.contentType,sizeBytes:row.sizeBytes,uploadedAt:row.uploadedAt,viewUrl:result.url});}catch(e){return a.error(e);}}

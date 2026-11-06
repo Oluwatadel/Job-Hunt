@@ -1,0 +1,7 @@
+{
+  "dailyJobMatches": {
+    "enabled": true,
+    "schedule": "0 8 * * *",
+    "timezone": "Africa/Lagos"
+  }
+}

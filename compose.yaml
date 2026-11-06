@@ -1,0 +1,36 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        VAPID_PUBLIC_KEY: ${VAPID_PUBLIC_KEY:-}
+    env_file: .env
+    environment:
+      DATABASE_URL: postgres://jobhunt:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}@db:5432/jobhunt
+      NODE_ENV: production
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+  db:
+    image: postgres:17-bookworm
+    environment:
+      POSTGRES_USER: jobhunt
+      POSTGRES_DB: jobhunt
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - database:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jobhunt -d jobhunt"]
+      interval: 5s
+      retries: 10
+    restart: unless-stopped
+volumes:
+  database:

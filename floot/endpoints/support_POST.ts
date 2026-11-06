@@ -1,0 +1,4 @@
+import { db } from "../helpers/db";import { serverAccess as a } from "../helpers/serverAccess";import { z } from "zod";import superjson from "superjson";
+export async function handle(request:Request){try{const u=await a.current(request);const i=z.object({subject:z.string().trim().min(1).max(200),message:z.string().trim().min(1).max(5000)}).parse(superjson.parse(await request.text()));
+ const pending=await db.selectFrom("supportTickets").select(db.fn.countAll().as("n")).where("userId","=",u.id).where("status","=","open").executeTakeFirstOrThrow();if(Number(pending.n)>=5)a.fail("You already have five open requests.",429);
+ return a.json(await db.insertInto("supportTickets").values({userId:u.id,...i}).returningAll().executeTakeFirstOrThrow());}catch(e){return a.error(e);}}

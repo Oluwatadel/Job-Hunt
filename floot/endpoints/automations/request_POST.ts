@@ -1,0 +1,2 @@
+import { serverAccess as a } from "../../helpers/serverAccess";import { runJobSearch } from "../../helpers/runJobSearch";import { FlootAiOutOfCreditsError } from "@floot/ai";
+export async function handle(request:Request){try{const u=await a.current(request);return a.json(await runJobSearch(u.id));}catch(e){if(e instanceof FlootAiOutOfCreditsError)return a.json({code:"OUT_OF_CREDITS",error:"AI temporarily unavailable."},503);return a.json({error:e instanceof Error?e.message:"Search failed."},400);}}

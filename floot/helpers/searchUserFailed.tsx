@@ -1,0 +1,1 @@
+import { db } from "./db";export async function searchUserFailed({payload}:{payload:{userId:number}}){await db.updateTable("searchRuns").set({status:"failed",summary:"Matching run ended before completion. Contact support if this continues.",finishedAt:new Date()}).where("userId","=",payload.userId).where("status","=","running").execute();}

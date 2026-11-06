@@ -1,0 +1,5 @@
+CREATE TABLE runtime_google_tokens (user_id integer PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE, email text NOT NULL UNIQUE, tokens text NOT NULL);
+CREATE TABLE runtime_google_pending (code_hash text PRIMARY KEY, user_id integer NOT NULL REFERENCES users(id) ON DELETE CASCADE, email text NOT NULL, tokens text NOT NULL, expires_at timestamptz NOT NULL);
+CREATE TABLE runtime_oauth_pending (state_hash text PRIMARY KEY, user_id integer NOT NULL REFERENCES users(id) ON DELETE CASCADE, browser_hash text NOT NULL, verifier text NOT NULL, expires_at timestamptz NOT NULL);
+CREATE TABLE runtime_jobs (id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL, payload jsonb NOT NULL, error_handler text, status text NOT NULL DEFAULT 'pending' CHECK(status IN ('pending','running','completed','failed')), attempts integer NOT NULL DEFAULT 0, created_at timestamptz NOT NULL DEFAULT NOW(), started_at timestamptz, finished_at timestamptz);
+CREATE INDEX runtime_jobs_pending_idx ON runtime_jobs (status,created_at);

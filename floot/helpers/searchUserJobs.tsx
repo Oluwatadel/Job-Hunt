@@ -1,0 +1,1 @@
+import { runJobSearch } from "./runJobSearch";export async function searchUserJobs(payload:{userId:number}){return runJobSearch(payload.userId);}

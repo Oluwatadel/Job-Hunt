@@ -1,0 +1,4 @@
+node_modules/
+dist/
+.env
+.floot-sync/baseline-seed.json

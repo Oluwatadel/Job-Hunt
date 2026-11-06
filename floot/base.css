@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Overlay layers */
+  --z-overlay: 400;
+
+  --z-spotlight: 1000; /* Tutorial spotlights/guided help */
+
+  /* System layers */
+  --z-critical: 2000; /* Critical system notifications */
+
+  /* spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+}
+
+:root {
+  --background: #faf7f1;
+  --foreground: #241f1a;
+
+  --surface: #ffffff;
+  --surface-foreground: #241f1a;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #241f1a;
+  --card: #ffffff;
+  --card-foreground: #241f1a;
+  --popup: #ffffff;
+  --popup-foreground: #241f1a;
+
+  --primary: #1f6f5c;
+  --primary-foreground: #ffffff;
+  --secondary: #efe9dc;
+  --secondary-foreground: #241f1a;
+  --accent: #e4efe9;
+  --accent-foreground: #1a5847;
+  --muted: #f1ece1;
+  --muted-foreground: #73685a;
+
+  --success: #2f7a4d;
+  --success-foreground: #ffffff;
+  --error: #b2463c;
+  --error-foreground: #ffffff;
+  --warning: #a8730a;
+  --warning-foreground: #ffffff;
+  --info: #2563a8;
+  --info-foreground: #ffffff;
+  --info-hover: #1e5389;
+  --info-active: #18456f;
+
+  --border: #e6ddce;
+
+  --font-family-base: "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-family-display: "Fraunces", Georgia, serif;
+  --font-family-monospace: "JetBrains Mono", ui-monospace, monospace;
+  --font-family-cursive: "Fraunces", Georgia, serif;
+
+  --shadow: 0 1px 2px rgba(60, 46, 24, 0.06);
+  --shadow-md: 0 4px 12px rgba(60, 46, 24, 0.08);
+  --shadow-lg: 0 12px 32px rgba(60, 46, 24, 0.12);
+  --shadow-focus: 0 0 0 3px rgba(31, 111, 92, 0.28);
+
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+
+  --animation-duration-fast: 120ms;
+  --animation-duration-normal: 190ms;
+  --animation-duration-slow: 320ms;
+
+  --chart-color-1: #1f6f5c;
+  --chart-color-2: #2563a8;
+  --chart-color-3: #a8730a;
+  --chart-color-4: #7c3aed;
+  --chart-color-5: #b2463c;
+
+  /* application status duotones */
+  --status-applied: #2563a8;
+  --status-applied-bg: #e3edf8;
+  --status-interviewed: #7c3aed;
+  --status-interviewed-bg: #efe7fd;
+  --status-needs: #a8730a;
+  --status-needs-bg: #faf0dc;
+  --status-blocked: #b2463c;
+  --status-blocked-bg: #f8e8e6;
+  --status-skipped: #78716c;
+  --status-skipped-bg: #eeebe7;
+  --status-offer: #1a5847;
+  --status-offer-bg: #e0f0e9;
+  --status-rejected: #96433b;
+  --status-rejected-bg: #f3e4e1;
+}
+
+.dark {
+  --background: #16130f;
+  --foreground: #f2ede4;
+
+  --surface: #201b14;
+  --surface-foreground: #f2ede4;
+  --sidebar: #201b14;
+  --sidebar-foreground: #f2ede4;
+  --card: #201b14;
+  --card-foreground: #f2ede4;
+  --popup: #2a2319;
+  --popup-foreground: #f2ede4;
+
+  --primary: #5fbfa3;
+  --primary-foreground: #0c1f1a;
+  --secondary: #2a2319;
+  --secondary-foreground: #f2ede4;
+  --accent: #1c2f29;
+  --accent-foreground: #7fd4bb;
+  --muted: #241f17;
+  --muted-foreground: #a89d8c;
+
+  --success: #5fbf84;
+  --success-foreground: #0c1f14;
+  --error: #ec8a7e;
+  --error-foreground: #2c0c08;
+  --warning: #e0ad4c;
+  --warning-foreground: #2c1c04;
+  --info: #7fb3e8;
+  --info-foreground: #0c1f2e;
+  --info-hover: #93c0ec;
+  --info-active: #a8cdf0;
+
+  --border: #3a3326;
+
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.36);
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.45);
+  --shadow-focus: 0 0 0 3px rgba(95, 191, 163, 0.32);
+
+  --chart-color-1: #5fbfa3;
+  --chart-color-2: #7fb3e8;
+  --chart-color-3: #e0ad4c;
+  --chart-color-4: #c4a6fb;
+  --chart-color-5: #ec8a7e;
+
+  --status-applied: #7fb3e8;
+  --status-applied-bg: #1e2d3d;
+  --status-interviewed: #c4a6fb;
+  --status-interviewed-bg: #2c2440;
+  --status-needs: #e0ad4c;
+  --status-needs-bg: #3a2f17;
+  --status-blocked: #ec8a7e;
+  --status-blocked-bg: #3a2420;
+  --status-skipped: #b3a898;
+  --status-skipped-bg: #2c2922;
+  --status-offer: #7fd4bb;
+  --status-offer-bg: #1b3129;
+  --status-rejected: #e2a79c;
+  --status-rejected-bg: #352420;
+}

@@ -1,0 +1,8 @@
+{
+  "projectId": "92321d51-8624-4e4c-9762-079a2ab08b23",
+  "publishedUrl": "https://oluwatobi-job-hunt.floot.app",
+  "mcpUrl": "https://mcp.floot.com/mcp",
+  "sourceDirectory": "floot",
+  "syncPolicy": "three-way; refuse conflicts and deletions; typecheck before updating baseline",
+  "note": "Only floot/ is shared with Floot. portable/ and scripts/ implement self-hosting. Credentials, database rows and hosted assets are separate."
+}

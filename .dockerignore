@@ -1,0 +1,11 @@
+node_modules
+dist
+.git
+.floot-sync
+.env
+.env.*
+!.env.example
+data
+.npm-cache
+ownvoice
+*.log

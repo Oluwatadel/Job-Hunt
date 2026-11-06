@@ -1,0 +1,21 @@
+import React from 'react';
+import P0 from '../../floot/pages/admin.tsx';
+import L0 from '../../floot/pages/admin.pageLayout.tsx';
+import P1 from '../../floot/pages/apply.$id.tsx';
+import L1 from '../../floot/pages/apply.$id.pageLayout.tsx';
+import P2 from '../../floot/pages/billing.tsx';
+import L2 from '../../floot/pages/billing.pageLayout.tsx';
+import P3 from '../../floot/pages/documents.tsx';
+import L3 from '../../floot/pages/documents.pageLayout.tsx';
+import P4 from '../../floot/pages/login.tsx';
+import L4 from '../../floot/pages/login.pageLayout.tsx';
+import P5 from '../../floot/pages/profile.tsx';
+import L5 from '../../floot/pages/profile.pageLayout.tsx';
+import P6 from '../../floot/pages/settings.tsx';
+import L6 from '../../floot/pages/settings.pageLayout.tsx';
+import P7 from '../../floot/pages/support.tsx';
+import L7 from '../../floot/pages/support.pageLayout.tsx';
+import P8 from '../../floot/pages/_index.tsx';
+import L8 from '../../floot/pages/_index.pageLayout.tsx';
+
+export const pages=[{path:"/admin",element:L0.reduceRight((child,Layout)=><Layout>{child}</Layout>,<P0/>)},{path:"/apply/:id",element:L1.reduceRight((child,Layout)=><Layout>{child}</Layout>,<P1/>)},{path:"/billing",element:L2.reduceRight((child,Layout)=><Layout>{child}</Layout>,<P2/>)},{path:"/documents",element:L3.reduceRight((child,Layout)=><Layout>{child}</Layout>,<P3/>)},{path:"/login",element:L4.reduceRight((child,Layout)=><Layout>{child}</Layout>,<P4/>)},{path:"/profile",element:L5.reduceRight((child,Layout)=><Layout>{child}</Layout>,<P5/>)},{path:"/settings",element:L6.reduceRight((child,Layout)=><Layout>{child}</Layout>,<P6/>)},{path:"/support",element:L7.reduceRight((child,Layout)=><Layout>{child}</Layout>,<P7/>)},{path:"/",element:L8.reduceRight((child,Layout)=><Layout>{child}</Layout>,<P8/>)}];

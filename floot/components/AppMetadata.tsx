@@ -1,0 +1,1 @@
+import { Helmet } from "react-helmet";export function AppMetadata(){return <Helmet><title>Job Hunt — Your next chapter</title><meta name="description" content="Private job tracking, CV matching and reviewed applications."/><meta name="theme-color" content="#1f6f5c"/><link rel="manifest" href="/manifest.json"/></Helmet>;}

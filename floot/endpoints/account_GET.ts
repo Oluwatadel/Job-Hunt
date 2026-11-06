@@ -1,0 +1,4 @@
+import { db } from "../helpers/db";import { serverAccess as a } from "../helpers/serverAccess";import { getPaymentsClientConfig } from "@floot/payments";
+export async function handle(request:Request){try{const u=await a.current(request);const s=await a.settings();let billing=null,isLive=false;try{isLive=(await getPaymentsClientConfig()).isLiveMode;billing=await db.selectFrom("billingAccounts").select(["status","periodEnd","subscriptionId"]).where("userId","=",u.id).where("isLive","=",isLive).executeTakeFirst()??null;}catch{}
+ const count=await db.selectFrom("applications").select(db.fn.countAll().as("n")).where("userId","=",u.id).executeTakeFirstOrThrow();
+ return a.json({user:u,isOwner:u.id===s.ownerId,paid:await a.paid(u),billing,isLive,plan:{name:s.planName,amount:s.amount,currency:s.currency,enabled:s.billingEnabled,freeLimit:s.freeLimit},tracked:Number(count.n)});}catch(e){return a.error(e);}}

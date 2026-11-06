@@ -1,0 +1,2 @@
+import { db } from "../../helpers/db";import { serverAccess as a } from "../../helpers/serverAccess";
+export async function handle(request:Request){try{const u=await a.actor(request);const r=await db.selectFrom("automationRequests").selectAll().where("userId","=",u.id).executeTakeFirst();return a.json({pending:r?.pending??false,requestedAt:r?.requestedAt?.toISOString()??null,fulfilledAt:r?.fulfilledAt?.toISOString()??null,lastRequestedAt:r?.lastRequestedAt?.toISOString()??null});}catch(e){return a.error(e);}}

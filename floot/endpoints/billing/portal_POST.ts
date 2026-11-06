@@ -1,0 +1,3 @@
+import { db } from "../../helpers/db";import { serverAccess as a } from "../../helpers/serverAccess";import { stripeRequest,getPaymentsClientConfig,getPaymentsReturnUrl } from "@floot/payments";
+export async function handle(request:Request){try{const u=await a.current(request);const {isLiveMode}=await getPaymentsClientConfig();const b=await db.selectFrom("billingAccounts").selectAll().where("userId","=",u.id).where("isLive","=",isLiveMode).executeTakeFirst();if(!b?.customerId)a.fail("No billing account yet.");
+ const r=await stripeRequest<{url:string}>({method:"POST",path:"/v1/billing_portal/sessions",params:{customer:b!.customerId,return_url:getPaymentsReturnUrl(request)}});return a.json({url:r.url});}catch(e){return a.error(e);}}

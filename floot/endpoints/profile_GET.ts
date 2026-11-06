@@ -1,0 +1,2 @@
+import { db } from "../helpers/db";import { serverAccess as a } from "../helpers/serverAccess";
+export async function handle(request:Request){try{const u=await a.current(request);return a.json(await db.selectFrom("searchProfiles").selectAll().where("userId","=",u.id).executeTakeFirst()??null);}catch(e){return a.error(e);}}

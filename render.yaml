@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=https://render.com/schema/render.yaml.json
+# Paid resources are created only when you apply this Blueprint in Render.
+services:
+  - type: web
+    name: job-hunt
+    runtime: node
+    region: frankfurt
+    plan: 0.5c-512mb
+    numInstances: 1
+    autoDeployTrigger: "off"
+    buildCommand: npm ci --legacy-peer-deps --no-audit --no-fund && npm run build
+    preDeployCommand: node scripts/migrate.mjs
+    startCommand: node scripts/start-render.mjs
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: job-hunt-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: OWNER_EMAIL
+        sync: false
+      - key: OWNER_NAME
+        value: Oluwatobi
+      - key: OWNER_PASSWORD
+        sync: false
+      - key: ENABLE_SCHEDULER
+        value: "false"
+
+databases:
+  - name: job-hunt-db
+    region: frankfurt
+    plan: 0.1c-256mb
+    postgresMajorVersion: "17"
+    databaseName: jobhunt
+    user: jobhunt
+    diskSizeGB: 5
+    ipAllowList: []

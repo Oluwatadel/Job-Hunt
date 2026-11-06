@@ -1,0 +1,4 @@
+import { db } from "../helpers/db";import { serverAccess as a } from "../helpers/serverAccess";import { z } from "zod";import superjson from "superjson";
+export async function handle(request:Request){try{const u=await a.current(request);const i=z.object({profile:z.string().trim().min(30).max(20000),roles:z.string().trim().min(2).max(1000),locations:z.string().trim().min(2).max(1000),remote:z.boolean(),dailyEnabled:z.boolean()}).parse(superjson.parse(await request.text()));
+ if(i.dailyEnabled&&!await a.paid(u))a.fail("Upgrade or request complimentary access for daily matching.",402);
+ return a.json(await db.insertInto("searchProfiles").values({userId:u.id,...i,confirmedAt:new Date()}).onConflict(oc=>oc.column("userId").doUpdateSet({...i,confirmedAt:new Date()})).returningAll().executeTakeFirstOrThrow());}catch(e){return a.error(e);}}

@@ -1,0 +1,1 @@
+import { serverAccess as a } from "../../helpers/serverAccess";export async function handle(request:Request){try{await a.current(request);return a.json({error:"Upload documents to your connected Google Drive using Documents."},410);}catch(e){return a.error(e);}}

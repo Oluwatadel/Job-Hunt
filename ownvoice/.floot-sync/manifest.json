@@ -1,0 +1,22 @@
+{
+  "projectId": "d55a2adb-0461-4e79-99dd-b48279ba426d",
+  "version": 1793539696218,
+  "verifiedAt": "2026-11-01T13:32:13.683Z",
+  "scope": "managed-files",
+  "files": {
+    "base.css": "1d46d13095297a623a4066d5ee5ff16977e5d588f15a9222a0f631c2b7237ec0",
+    "static/__dev/design-principles.md": "d13c1780fb9752923ef3abbf333252d5629631c41223002294ca83ee050cb2c5",
+    "components/Button.tsx": "e8990c9807cb7616e5b5d4719363a9206c3abb4de3287cc880ff227d15db5efa",
+    "components/Button.module.css": "6b2d5bd3b0caca69623b1df9a68dedec2417b8aa4da4f1129ced7967f3f8822e",
+    "components/Textarea.tsx": "dc72d155dcb6b55fb93317f32b5328540cfbf6b5452678d5adad425abb2bdddd",
+    "components/Textarea.module.css": "21cdd7c400a39e3fc6e0f98d6ff31ad3c4f05107b3934899537a4b9c4260b4ae",
+    "components/Input.tsx": "51efcf795613830360b57578ff9b16ff167163c5126705c0a96f81464813cf08",
+    "components/Input.module.css": "f5f2fd8c8fa000a5623a8af6c9751b2a5a0282f29eef9de01bc3aa9d4145d415",
+    "pages/_index.pageLayout.tsx": "37b82084f43a8e4772665574b64511b6b1c54874c2c3cd66cb85a1fc3958d503",
+    "pages/_index.tsx": "a2a63c94ad621da23eee222989ae4abcc9356b552fe78e0780fa5fe88bd90e46",
+    "pages/_index.module.css": "77a7db7bf865c2526255f5be606c1775ed3a10648e32ab9cf3b4419644cbc997",
+    "helpers/rewriteDraft.tsx": "a0ffbbf6f6623c8647e374ada3252fd02293a793f1d734d0ecabcc988c8b2347",
+    "endpoints/rewrite_POST.schema.ts": "86393d05f48e1e7228d5bdd6969be6bb1566d3c274e9836ba0774ee67c5a4c0a",
+    "endpoints/rewrite_POST.ts": "fbb4a4ca52c14c9b4bac1229f5f80014efece6dc786ab1b9020ac7740b7550a7"
+  }
+}

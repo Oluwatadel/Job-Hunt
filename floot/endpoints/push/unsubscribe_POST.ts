@@ -1,0 +1,2 @@
+import { db } from "../../helpers/db";import { schema } from "./unsubscribe_POST.schema";import { serverAccess as a } from "../../helpers/serverAccess";import superjson from "superjson";
+export async function handle(request:Request){try{const u=await a.current(request);const i=schema.parse(superjson.parse(await request.text()));await db.deleteFrom("pushSubscriptions").where("userId","=",u.id).where("identity","=",i.identity).execute();return a.json({success:true});}catch(e){return a.error(e);}}
